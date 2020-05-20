@@ -2,7 +2,6 @@
 
 const path = require('path')
 const rm = require('rimraf')
-const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const resolve = (dir) => {
@@ -14,13 +13,9 @@ rm.sync(resolve('prod'))
 rm.sync(resolve('dist'))
 
 module.exports = {
-  mode: 'development',
   output: {
     path: resolve('dist'),
     publicPath: '/'
-  },
-  entry: {
-    app: './src/main.ts'
   },
   resolve: {
     extensions: ['.js', '.ts', '.vue', '.json'],
@@ -85,7 +80,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            name: utils.assetsPath('img/[name].[hash:7].[ext]')
+            //name: 'img/[name].[hash:7].[ext]'
           }
         }
       }
