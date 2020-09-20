@@ -1,7 +1,7 @@
 'use strict'
 
 const baseConfig = require('./webpack.base.conf.js')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const HOST = 'localhost'
 const PORT = 8080
 
