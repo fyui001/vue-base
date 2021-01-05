@@ -28,7 +28,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.1.0",
     "@vue/test-utils": "1.1.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "babel": "^6.23.0",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
