@@ -2,6 +2,7 @@
 
 const baseConfig = require('./webpack.base.conf.js')
 const { merge } = require('webpack-merge')
+
 const HOST = 'localhost'
 const PORT = 8080
 
@@ -10,22 +11,26 @@ module.exports = merge(baseConfig, {
   devtool: 'eval-source-map',
 
   devServer: {
-    logLevel: 'warn',
     hot: true,
     contentBase: 'dist',
     host: HOST,
     port: PORT,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    watchOptions: {
+      poll: true
+    }
   },
+
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
-        ]
+          'css-loader',
+          'postcss-loader',
+        ],
       },
       {
         test: /\.styl(us)?$/,
@@ -33,7 +38,7 @@ module.exports = merge(baseConfig, {
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'stylus-loader'
+          'stylus-loader',
         ]
       },
       {
@@ -42,14 +47,9 @@ module.exports = merge(baseConfig, {
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
         ]
       }
     ]
   },
-
-  optimization: {
-    namedModules: true,
-    noEmitOnErrors: true
-  }
 })

@@ -20,7 +20,8 @@ module.exports = merge(baseConfig, {
         use: [
           'style-loader',
           'css-loader',
-        ]
+          'postcss-loader',
+        ],
       },
       {
         test: /\.styl(us)?$/,
