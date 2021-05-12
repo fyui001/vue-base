@@ -18,7 +18,7 @@ module.exports = {
     publicPath: '/'
   },
   entry: {
-    app: './src/index.ts'
+    app: './src/main.ts'
   },
   resolve: {
     extensions: ['.js', '.ts', '.vue', '.json'],
@@ -48,6 +48,9 @@ module.exports = {
             options: {
               appendTsSuffixTo: [/\.vue$/],
               happyPackMode: true,
+              compilerOptions: {
+                module: 'esnext',
+              },
             },
           },
         ],
