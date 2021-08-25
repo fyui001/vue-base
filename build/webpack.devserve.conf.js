@@ -11,15 +11,17 @@ module.exports = merge(baseConfig, {
   devtool: 'eval-source-map',
 
   devServer: {
-    hot: true,
-    contentBase: 'dist',
+    static: {
+      publicPath: "/static-public-path/",
+      staticOptions: {},
+      serveIndex: true,
+      watch: true,
+    },
+    hot: "only",
     host: HOST,
     port: PORT,
     open: true,
     historyApiFallback: true,
-    watchOptions: {
-      poll: true
-    }
   },
 
   module: {
